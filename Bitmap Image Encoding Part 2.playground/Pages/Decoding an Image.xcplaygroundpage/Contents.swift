@@ -20,12 +20,24 @@ import PlaygroundSupport
 
 // Copy your encoded image string here...
 let encodedBitmap = """
-1,3,1
-4,1
-1,4
-0,1,3,1
-0,1,3,1
-1,4
+20
+6,6,8
+3,1,2,8,6
+2,2,2,9,5
+1,3,2,9,4
+1,3,2,1,4,5,4
+0,4,8,5,3
+0,4,3,3,3,3,4
+0,4,2,5,2,4,3
+0,4,2,5,2,4,3
+0,4,2,5,2,4,3
+0,4,3,3,3,4,4
+0,5,7,5,4
+1,5,5,5,4
+1,15,4
+2,13,5
+3,11,6
+5,7,8
 """
 
 // Make a canvas
@@ -50,13 +62,14 @@ var y = canvas.height - cellSize - 2
 // Store the current number of pixels to draw
 var drawThisManyPixels = 0
 
+
 // Iterate over each character in the encoded bitmap string
 for character in encodedBitmap {
     
     // Set colour at start of a line
     if character == "0" {
         
-        canvas.fillColor = Color.black
+        canvas.fillColor = Color.red
         currentColor = "black"
 
     } else if character == "," {
@@ -71,7 +84,7 @@ for character in encodedBitmap {
                 canvas.fillColor = Color.white
             } else {
                 currentColor = "black"
-                canvas.fillColor = Color.black
+                canvas.fillColor = Color.red
             }
 
         }
